@@ -1,8 +1,13 @@
 package dan.tp2021.pedidos.service;
 
-import dan.tp2021.pedidos.domain.Producto;
+import org.springframework.stereotype.Service;
+import dan.tp2021.pedidos.domain.Material;
+import dan.tp2021.pedidos.service.MaterialService;
 
-public interface MaterialService {
+@Service
+public class MaterialService {
 
-	public Integer stockDisponible(Producto m);
+	public Integer stockDisponible(Material m) {
+		return 4;
+	}
 }

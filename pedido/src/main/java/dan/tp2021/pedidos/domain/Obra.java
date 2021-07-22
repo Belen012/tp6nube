@@ -1,7 +1,6 @@
 package dan.tp2021.pedidos.domain;
 
 public class Obra {
-	
 	private Integer id;
 	private String descripcion;
 
@@ -20,7 +19,4 @@ public class Obra {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
-
 }

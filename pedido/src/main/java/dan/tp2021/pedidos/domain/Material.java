@@ -1,6 +1,6 @@
 package dan.tp2021.pedidos.domain;
 
-public class Producto {
+public class Material {
 
 	private Integer id;
 	private String descripcion;
@@ -24,6 +24,4 @@ public class Producto {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	
-	
 }

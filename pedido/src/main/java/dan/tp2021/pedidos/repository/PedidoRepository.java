@@ -1,22 +1,48 @@
 package dan.tp2021.pedidos.repository;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import dan.tp2021.pedidos.domain.EstadoPedido;
 import dan.tp2021.pedidos.domain.Pedido;
-import frsf.isi.dan.InMemoryRepository;
 
 @Repository
-public class PedidoRepository  extends InMemoryRepository<Pedido> {
+public class PedidoRepository  {
 
-    @Override
-    public Integer getId(Pedido arg0) {
-        return arg0.getId();
+    public Integer getId(Pedido pedido) {
+        return pedido.getId();
     }
 
-    @Override
-    public void setId(Pedido arg0, Integer arg1) {
-        arg0.setId(arg1);
-    } 
-	
+    public void setId(Pedido pedido, Integer id) {
+        pedido.setId(id);
+    }
+
+	public Pedido save(Pedido nuevoPedido) {
+		return nuevoPedido;
+	}
+
+	public Pedido find(Long id) {
+		return new Pedido();
+	}
+
+	public List<Pedido> findByObra(Long obraId) {
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		return pedidos;
+	}
+
+	public List<Pedido> findByEstado(EstadoPedido estado) {
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		return pedidos;
+	}
+
+	public List<Pedido> findByCliente(Long clientId) {
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		return pedidos;
+	}
+
+	public List<Pedido> findAll() {
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		return pedidos;
+	}
 }
