@@ -1,11 +1,21 @@
 package dan.tp2021.pedidos.service;
 
+import org.springframework.stereotype.Service;
 import dan.tp2021.pedidos.domain.Obra;
+import dan.tp2021.pedidos.service.ClienteService;
 
-public interface ClienteService {
+@Service
+public class ClienteService {
 
-	public Double deudaCliente(Obra id);
-	public Double maximoSaldoNegativo(Obra id);
-	public Integer situacionCrediticiaBCRA(Obra id);
+	public Double deudaCliente(Obra id) {
+		return 0.0;
+	}
 
+	public Integer situacionCrediticiaBCRA(Obra id) {
+		return 0;
+	}
+
+	public Double maximoSaldoNegativo(Obra id) {
+		return 9000.0;
+	}
 }
