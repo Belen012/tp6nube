@@ -14,7 +14,9 @@ import javax.persistence.*;
 @Table(name = "cliente")
 public class Cliente {
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	private int clienteId;
     private String razonSocial;
     private String cuit;
     private String mail;

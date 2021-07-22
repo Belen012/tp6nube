@@ -2,10 +2,7 @@ package dan.tp2021.usuarios.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Data
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 @Table(name = "usuario")
 public class Usuario {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String user;
 	private String password;

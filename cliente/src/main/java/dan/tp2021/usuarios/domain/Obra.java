@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "obra")
 public class Obra {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String descripcion;
 	private Float latitud;
@@ -20,7 +21,5 @@ public class Obra {
 	@OneToOne
 	private TipoObra tipo;
 
-
-	
 
 }

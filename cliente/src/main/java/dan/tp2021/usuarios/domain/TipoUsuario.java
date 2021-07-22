@@ -2,9 +2,7 @@ package dan.tp2021.usuarios.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -13,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "tipoUsuario")
 public class TipoUsuario {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String tipo;
 

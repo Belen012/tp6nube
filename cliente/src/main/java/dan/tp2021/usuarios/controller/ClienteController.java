@@ -1,10 +1,16 @@
 package dan.tp2021.usuarios.controller;
 
 import dan.tp2021.usuarios.domain.Cliente;
+import dan.tp2021.usuarios.domain.dto.ClienteDTO;
+import dan.tp2021.usuarios.exception.ClienteNotFoundException;
+import dan.tp2021.usuarios.exception.ObraNotFoundException;
+import dan.tp2021.usuarios.service.cliente.IClienteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +26,29 @@ import java.util.stream.IntStream;
 public class ClienteController {
 
 
-    private static final List<Cliente> listaClientes = new ArrayList<>();
+    //private static final List<Cliente> listaClientes = new ArrayList<>();
     //private static Integer ID_GEN = 1;
 
+    @Autowired
+    IClienteService iClienteService;
+
+    @PostMapping("/crear")
+    public ResponseEntity<Cliente> crear(@RequestBody ClienteDTO clienteDTO) throws ObraNotFoundException {
+        return new ResponseEntity<>(iClienteService.crear(clienteDTO), HttpStatus.OK);
+    }
+
+    @PutMapping("/actualizar")
+    public ResponseEntity<Cliente> actualizar(@RequestBody ClienteDTO clienteDTO) throws ObraNotFoundException, ClienteNotFoundException {
+        return new ResponseEntity<>(iClienteService.update(clienteDTO), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/eliminar")
+    public ResponseEntity<HttpStatus> eliminar(@RequestParam int clienteID){
+        iClienteService.eliminar(clienteID);
+        return new ResponseEntity<>( HttpStatus.OK);
+    }
+
+/*
     @GetMapping(path = "/{id}")
     @ApiOperation(value = "Busca un cliente por id")
     public ResponseEntity<Cliente> clientePorId(@PathVariable Integer id){
@@ -39,13 +65,6 @@ public class ClienteController {
         return ResponseEntity.ok(listaClientes);
     }
 
-    @PostMapping("/crear")
-    public ResponseEntity<Cliente> crear(@RequestBody Cliente nuevo){
-        System.out.println(" crear cliente "+nuevo);
-       // nuevo.setId(ID_GEN++);
-        listaClientes.add(nuevo);
-        return ResponseEntity.ok(nuevo);
-    }
 
     @PutMapping(path = "/{id}")
     @ApiOperation(value = "Actualiza un cliente")
@@ -68,7 +87,7 @@ public class ClienteController {
         }
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}") //se tiene que comunicar con el microservicio de pedido
     public ResponseEntity<Cliente> borrar(@PathVariable Integer id){
         OptionalInt indexOpt =   IntStream.range(0, listaClientes.size())
                 .filter(i -> listaClientes.get(i).getId().equals(id))
@@ -80,5 +99,5 @@ public class ClienteController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 }
