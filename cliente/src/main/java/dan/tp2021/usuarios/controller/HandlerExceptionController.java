@@ -1,5 +1,6 @@
 package dan.tp2021.usuarios.controller;
 
+import dan.tp2021.usuarios.domain.TipoObra;
 import dan.tp2021.usuarios.domain.dto.ErrorDTO;
 import dan.tp2021.usuarios.exception.*;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,18 @@ public class HandlerExceptionController {
         return new ResponseEntity<>(e.getError(), e.getStatus());
     }
 
+    @ExceptionHandler(ObraIncompletException.class)
+    public ResponseEntity<ErrorDTO> userNotFoundException(ObraIncompletException e){
+        return new ResponseEntity<>(e.getError(), e.getStatus());
+    }
+
     @ExceptionHandler(ObraNotFoundException.class)
     public ResponseEntity<ErrorDTO> userNotFoundException(ObraNotFoundException e){
+        return new ResponseEntity<>(e.getError(), e.getStatus());
+    }
+
+    @ExceptionHandler(TipoObraNotFoundException.class)
+    public ResponseEntity<ErrorDTO> userNotFoundException(TipoObraNotFoundException e){
         return new ResponseEntity<>(e.getError(), e.getStatus());
     }
 
