@@ -13,6 +13,7 @@ public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private int empleadoCode;
 	private String mail;
 	@OneToOne
 	private Usuario user;

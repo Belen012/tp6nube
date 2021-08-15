@@ -13,6 +13,7 @@ public class TipoObra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private int tipoObraCode;
 	private String descripcion;
 
 }

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ObraException extends Exception{
+public class ClienteException extends Exception{
 
     private ErrorDTO error;
     private HttpStatus status;

@@ -13,6 +13,7 @@ public class Obra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private int obraCode;
 	private String descripcion;
 	private Float latitud;
 	private Float longitud;

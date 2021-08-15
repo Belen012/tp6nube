@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ClienteDTO {
 
-    private int clienteId;
+    private int clienteCode;
     private String razonSocial;
     private String cuit;
     private String mail;
