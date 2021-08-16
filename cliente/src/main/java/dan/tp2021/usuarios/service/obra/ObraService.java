@@ -39,7 +39,7 @@ public class ObraService implements IObraService{
             throw new ObraNotFoundException();
         }
 
-        if(obra.getObraCode() == -1  && obra.getLatitud() == null && obra.getLongitud() == null && obra.getTipo() == null){
+        if(obra.getObraCode() == -1  || obra.getLatitud() == null || obra.getLongitud() == null || obra.getTipo() == null){
             throw new ObraIncompletException();
         }
     }
@@ -77,20 +77,5 @@ public class ObraService implements IObraService{
 
         return cliente.getObras();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
