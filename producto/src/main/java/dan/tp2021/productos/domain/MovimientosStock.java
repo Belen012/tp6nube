@@ -1,59 +1,28 @@
 package dan.tp2021.productos.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.Instant;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "movimientosStock")
 public class MovimientosStock {
 	
-	private Integer id;
+	private Long id;
+	private int movimientoStockCode;
 	private DetallePedido detallePedido;
 	private DetalleProvision detalleProvision;
 	private Material material;
 	private Integer cantidadEntrada;
 	private Integer cantidadSalida;
 	private Instant fecha;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public DetallePedido getDetallePedido() {
-		return detallePedido;
-	}
-	public void setDetallePedido(DetallePedido detallePedido) {
-		this.detallePedido = detallePedido;
-	}
-	public DetalleProvision getDetalleProvision() {
-		return detalleProvision;
-	}
-	public void setDetalleProvision(DetalleProvision detalleProvision) {
-		this.detalleProvision = detalleProvision;
-	}
-	public Material getMaterial() {
-		return material;
-	}
-	public void setMaterial(Material material) {
-		this.material = material;
-	}
-	public Integer getCantidadEntrada() {
-		return cantidadEntrada;
-	}
-	public void setCantidadEntrada(Integer cantidadEntrada) {
-		this.cantidadEntrada = cantidadEntrada;
-	}
-	public Integer getCantidadSalida() {
-		return cantidadSalida;
-	}
-	public void setCantidadSalida(Integer cantidadSalida) {
-		this.cantidadSalida = cantidadSalida;
-	}
-	public Instant getFecha() {
-		return fecha;
-	}
-	public void setFecha(Instant fecha) {
-		this.fecha = fecha;
-	}
-	
+
 	
 }

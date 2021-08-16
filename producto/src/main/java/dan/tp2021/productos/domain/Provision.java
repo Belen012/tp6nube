@@ -1,32 +1,25 @@
 package dan.tp2021.productos.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.Instant;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "provision")
 public class Provision {
 
-	private Integer id;
+	private Long id;
+	private int provisionCode;
 	private Instant fechaProvision;
 	private List<DetalleProvision> detalle;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Instant getFechaProvision() {
-		return fechaProvision;
-	}
-	public void setFechaProvision(Instant fechaProvision) {
-		this.fechaProvision = fechaProvision;
-	}
-	public List<DetalleProvision> getDetalle() {
-		return detalle;
-	}
-	public void setDetalle(List<DetalleProvision> detalle) {
-		this.detalle = detalle;
-	}
 
 	
 }
