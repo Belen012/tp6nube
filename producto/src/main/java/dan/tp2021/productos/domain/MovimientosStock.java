@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.Instant;
 
 @Data
@@ -14,11 +13,15 @@ import java.time.Instant;
 @Entity
 @Table(name = "movimientosStock")
 public class MovimientosStock {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private int movimientoStockCode;
+	@OneToOne
 	private DetallePedido detallePedido;
+	@OneToOne
 	private DetalleProvision detalleProvision;
+	@OneToOne
 	private Material material;
 	private Integer cantidadEntrada;
 	private Integer cantidadSalida;
